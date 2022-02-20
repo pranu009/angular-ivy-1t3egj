@@ -1,0 +1,23 @@
+<!-- <input value="" placeholder="use below url" [(ngModel)]="name"> -->
+
+<!-- <button (click)="test()" type="button" name="button" class="btn btn-primary">Search</button> -->
+<div class="m-5">
+  <h1>Search Users</h1>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search by name" aria-label="" aria-describedby="basic-addon1"
+      [(ngModel)]="searchText">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="test()" type="button">Search</button>
+    </div>
+  </div>
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of (users | async)">
+      <div>
+        <a href="{{user.html_url}}">
+          <span>{{user.login}}</span>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
