@@ -1,0 +1,24 @@
+<div class="m-5">
+  <button (click)="test()" type="button" name="button" class="btn btn-outline-secondary">Clear History</button>
+  <ul class="list-group mt-5">
+    <li class="list-group-item" *ngFor="let data of searchHistory">
+      <div>
+        <div><b class="mr-3">Search text</b>{{data.searchtext}}</div>
+        <div><b class="mr-3">Attempt</b>{{data.attempt}}</div>
+        <div *ngIf="data.attempt === 'successful'">
+          <div><b>Results</b></div>
+          <ul class="list-group mt-1">
+            <li class="list-group-item" *ngFor="let user of (data.result)">
+              <div>
+                <a href="{{user.html_url}}">
+                  <div>{{user.login}}</div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br>
+    </li>
+  </ul>
+</div>
